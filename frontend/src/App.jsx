@@ -10,7 +10,7 @@ import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import RecentWork from "./components/RecentWork";
-import AdminHero from "./pages/admin/Hero";
+import AdminHero from "./pages/Admin/AdminHero";
 import AddSkills from "./pages/Admin/AddSkills";
 import AddExperience from "./pages/Admin/AddExperience";
 import AddWorks from "./pages/Admin/AddWorks";
