@@ -10,7 +10,8 @@ import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import RecentWork from "./components/RecentWork";
-import Hero from "./pages/admin/Hero";
+// import Hero from "./pages/admin/Hero";
+import AdminHero from "./pages/admin/Hero";
 import AddSkills from "./pages/Admin/AddSkills";
 import AddExperience from "./pages/Admin/AddExperience";
 import AddWorks from "./pages/Admin/AddWorks";
@@ -23,7 +24,6 @@ import Layout from "./Layouts/Layout";
 function App() {
   return (
     <>
-    {/* <div className="fixed inset-0 z-0"> */}
 
 
 
@@ -92,7 +92,7 @@ function App() {
             path="/admin/hero"
             element={
               <AdminLayout>
-                <Hero />
+                <AdminHero />
               </AdminLayout>
             }
           />
