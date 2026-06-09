@@ -10,7 +10,6 @@ import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import RecentWork from "./components/RecentWork";
-import Dashboard from "./pages/admin/Dashboard";
 import Hero from "./pages/admin/Hero";
 import AddSkills from "./pages/Admin/AddSkills";
 import AddExperience from "./pages/Admin/AddExperience";
@@ -88,14 +87,6 @@ function App() {
           </Route>
 
           {/* Admin Panel */}
-          <Route
-            path="/admin"
-            element={
-              <AdminLayout>
-                <Dashboard />
-              </AdminLayout>
-            }
-          />
 
           <Route
             path="/admin/hero"

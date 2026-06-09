@@ -130,11 +130,6 @@ const Sidebar = () => {
 
   const menuItems = [
     {
-      name: "Dashboard",
-      path: "/admin",
-      icon: <LayoutDashboard size={20} />,
-    },
-    {
       name: "Hero Section",
       path: "/admin/hero",
       icon: <Image size={20} />,
