@@ -149,7 +149,13 @@ function App() {
               </AdminLayout>
             }
           />
+
+          <Route
+  path="/test"
+  element={<h1>Test Route Working</h1>}
+/>
         </Routes>
+        
       </BrowserRouter>
     </>
   );
