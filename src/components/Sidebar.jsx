@@ -1,6 +1,5 @@
-
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   LayoutDashboard,
   Image,
@@ -17,6 +16,17 @@ import {
 
 const Sidebar = () => {
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("adminAuth");
+
+    // remove other auth data if you add later
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    navigate("/login");
+  };
 
   const menuItems = [
     {
@@ -70,10 +80,10 @@ const Sidebar = () => {
         </div>
       )} */}
       {/* Mobile Hamburger Button */}
-{!open && (
-  <button
-    onClick={() => setOpen(true)}
-    className="
+      {!open && (
+        <button
+          onClick={() => setOpen(true)}
+          className="
       md:hidden
       fixed
       top-4
@@ -89,10 +99,10 @@ const Sidebar = () => {
       rounded-xl
       shadow-lg
     "
-  >
-    <Menu size={24} />
-  </button>
-)}
+        >
+          <Menu size={24} />
+        </button>
+      )}
 
       {/* Mobile Overlay */}
       {open && (
@@ -121,7 +131,6 @@ const Sidebar = () => {
             <X size={28} />
           </button>
         </div>
-
         {/* Profile Section */}
         <div className="p-8 border-b border-slate-700">
           <div className="flex flex-col items-center">
@@ -129,16 +138,11 @@ const Sidebar = () => {
               S
             </div>
 
-            <h2 className="mt-4 text-xl font-semibold">
-              Sagar Dutta
-            </h2>
+            <h2 className="mt-4 text-xl font-semibold">Sagar Dutta</h2>
 
-            <p className="text-sm text-slate-400">
-              Portfolio Administrator
-            </p>
+            <p className="text-sm text-slate-400">Portfolio Administrator</p>
           </div>
         </div>
-
         {/* Navigation */}
         <nav className="flex-1 px-4 py-6 overflow-y-auto">
           <ul className="space-y-3">
@@ -163,14 +167,16 @@ const Sidebar = () => {
             ))}
           </ul>
         </nav>
-
         {/* Logout */}
         <div className="p-4 border-t border-slate-700">
-          <button className="w-full flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 py-3 rounded-xl font-medium transition">
+          <button
+            onClick={handleLogout}
+            className="w-full flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 py-3 rounded-xl font-medium transition"
+          >
             <LogOut size={18} />
             Logout
           </button>
-        </div>
+        </div>{" "}
       </aside>
     </>
   );

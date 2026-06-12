@@ -4,7 +4,9 @@ import { MovingParticles } from "../MovingParticles";
 import SplitText from "../SplitText";
 
 const RecentWork = () => {
-  const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
+  const API_URL = "http://127.0.0.1:8000/api";
+
+  // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
   const [works, setWork] = useState([]);
   const [expandedIndex, setExpandedIndex] = useState(null);
 
@@ -26,60 +28,45 @@ const RecentWork = () => {
       id="work"
       className="w-full bg-[#f7f7fb] px-4 sm:px-6 md:px-12 lg:px-20 py-10 sm:py-14 lg:py-0"
     >
-      <MovingParticles/>
+      <MovingParticles />
       <div className="max-w-7xl mx-auto lg:pt-13 pb-10">
-        {/* Heading */}
-        {/* <div className="text-center mb-10 sm:mb-14 lg:mb-16">
-          <p className="text-violet-600 font-semibold tracking-widest mb-2 sm:mb-3 text-sm sm:text-base">
-            MY WORK
-          </p>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black">
-            Recent Projects
-          </h2>
-
-          <p className="text-gray-600 mt-4 sm:mt-5 max-w-2xl mx-auto leading-7 sm:leading-8 text-sm sm:text-base md:text-lg px-2 sm:px-0">
-            Here are some of my recent projects focused on frontend development,
-            backend systems, and responsive web applications.
-          </p>
-        </div> */}
         <div className="text-center mb-10 sm:mb-14 lg:mb-16 flex flex-col items-center">
-  <SplitText
-    text="MY WORK"
-    tag="p"
-    className="text-violet-600 font-semibold tracking-widest mb-2 sm:mb-3 text-sm sm:text-base"
-    delay={30}
-    duration={0.8}
-    splitType="chars"
-    from={{ opacity: 0, y: 20 }}
-    to={{ opacity: 1, y: 0 }}
-    textAlign="center"
-  />
+          <SplitText
+            text="MY WORK"
+            tag="p"
+            className="text-violet-600 font-semibold tracking-widest mb-2 sm:mb-3 text-sm sm:text-base"
+            delay={30}
+            duration={0.8}
+            splitType="chars"
+            from={{ opacity: 0, y: 20 }}
+            to={{ opacity: 1, y: 0 }}
+            textAlign="center"
+          />
 
-  <SplitText
-    text="Recent Projects"
-    tag="h2"
-    className="text-3xl sm:text-4xl md:text-5xl font-bold text-black"
-    delay={50}
-    duration={1}
-    splitType="chars"
-    from={{ opacity: 0, y: 40 }}
-    to={{ opacity: 1, y: 0 }}
-    textAlign="center"
-  />
+          <SplitText
+            text="Recent Projects"
+            tag="h2"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-black"
+            delay={50}
+            duration={1}
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            textAlign="center"
+          />
 
-  <SplitText
-    text="Here are some of my recent projects focused on frontend development, backend systems, and responsive web applications."
-    tag="p"
-    className="text-gray-600 mt-4 sm:mt-5 max-w-2xl mx-auto leading-7 sm:leading-8 text-sm sm:text-base md:text-lg px-2 sm:px-0"
-    delay={15}
-    duration={0.8}
-    splitType="words"
-    from={{ opacity: 0, y: 20 }}
-    to={{ opacity: 1, y: 0 }}
-    textAlign="center"
-  />
-</div>
+          <SplitText
+            text="Here are some of my recent projects focused on frontend development, backend systems, and responsive web applications."
+            tag="p"
+            className="text-gray-600 mt-4 sm:mt-5 max-w-2xl mx-auto leading-7 sm:leading-8 text-sm sm:text-base md:text-lg px-2 sm:px-0"
+            delay={15}
+            duration={0.8}
+            splitType="words"
+            from={{ opacity: 0, y: 20 }}
+            to={{ opacity: 1, y: 0 }}
+            textAlign="center"
+          />
+        </div>
 
         {/* Cards */}
 
@@ -101,10 +88,10 @@ const RecentWork = () => {
                   className="relative bg-cover bg-center rounded-2xl sm:rounded-[30px] p-5 sm:p-6 lg:p-7 
     h-full flex flex-col text-white overflow-hidden"
                   style={{
-                    backgroundImage: work.image
-                      ? `url(http://127.0.0.1:8000/storage/${work.image})`
-                      : "none",
-                  }}
+  backgroundImage: work.image
+    ? `url(http://127.0.0.1:8000/${work.image})`
+    : "none",
+}}
                 >
                   {/* Overlay */}
                   <div className="absolute inset-0 z-0">
