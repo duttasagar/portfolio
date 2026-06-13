@@ -9,9 +9,7 @@ import {
 } from "react-icons/fa";
 
 const Contact = () => {
-    const API_URL = "http://127.0.0.1:8000/api";
-
-  // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const [contact, setContact] = useState(null);
   const [formData, setFormData] = useState({
@@ -83,42 +81,42 @@ const Contact = () => {
         </div> */}
 
         <div className="text-center mb-10 sm:mb-14 lg:mb-16 flex flex-col items-center">
-  <SplitText
-    text="CONTACT ME"
-    tag="p"
-    className="text-violet-600 font-semibold tracking-widest mb-2 sm:mb-3 text-sm sm:text-base"
-    delay={30}
-    duration={0.8}
-    splitType="chars"
-    from={{ opacity: 0, y: 20 }}
-    to={{ opacity: 1, y: 0 }}
-    textAlign="center"
-  />
+          <SplitText
+            text="CONTACT ME"
+            tag="p"
+            className="text-violet-600 font-semibold tracking-widest mb-2 sm:mb-3 text-sm sm:text-base"
+            delay={30}
+            duration={0.8}
+            splitType="chars"
+            from={{ opacity: 0, y: 20 }}
+            to={{ opacity: 1, y: 0 }}
+            textAlign="center"
+          />
 
-  <SplitText
-    text="Let’s Work Together"
-    tag="h2"
-    className="text-3xl sm:text-4xl md:text-5xl font-bold text-black"
-    delay={50}
-    duration={1}
-    splitType="chars"
-    from={{ opacity: 0, y: 40 }}
-    to={{ opacity: 1, y: 0 }}
-    textAlign="center"
-  />
+          <SplitText
+            text="Let’s Work Together"
+            tag="h2"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-black"
+            delay={50}
+            duration={1}
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            textAlign="center"
+          />
 
-  <SplitText
-    text="Have a project idea or opportunity? Feel free to contact me."
-    tag="p"
-    className="text-gray-600 mt-4 sm:mt-5 max-w-2xl mx-auto leading-7 sm:leading-8 text-sm sm:text-base md:text-lg px-2 sm:px-0"
-    delay={15}
-    duration={0.8}
-    splitType="words"
-    from={{ opacity: 0, y: 20 }}
-    to={{ opacity: 1, y: 0 }}
-    textAlign="center"
-  />
-</div>
+          <SplitText
+            text="Have a project idea or opportunity? Feel free to contact me."
+            tag="p"
+            className="text-gray-600 mt-4 sm:mt-5 max-w-2xl mx-auto leading-7 sm:leading-8 text-sm sm:text-base md:text-lg px-2 sm:px-0"
+            delay={15}
+            duration={0.8}
+            splitType="words"
+            from={{ opacity: 0, y: 20 }}
+            to={{ opacity: 1, y: 0 }}
+            textAlign="center"
+          />
+        </div>
 
         {/* GRID */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-start">

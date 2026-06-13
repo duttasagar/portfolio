@@ -7,7 +7,9 @@ import {
 } from "@tanstack/react-table";
 
 const Messages = () => {
-    const API_URL = "http://127.0.0.1:8000/api";
+    const API_URL = import.meta.env.VITE_API_URL;
+
+    // const API_URL = "http://127.0.0.1:8000/api";
 
   // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
 

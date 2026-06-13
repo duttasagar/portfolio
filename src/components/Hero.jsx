@@ -7,8 +7,10 @@ import { MovingParticles } from "../MovingParticles";
 import AnimatedText from "../AnimatedText";
 
 const Hero = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [hero, setHero] = useState(null);
-    const API_URL = "http://127.0.0.1:8000/api";
+  // const API_URL = "http://127.0.0.1:8000/api";
   // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
   const navigate = useNavigate();
 
@@ -136,15 +138,14 @@ const Hero = () => {
           {/* RIGHT SIDE */}
           <div className="relative flex justify-center items-center mx-auto">
             <div className="absolute w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] md:w-[300px] md:h-[500px] bg-violet-200 rounded-full blur-3xl opacity-60"></div>
-
             {/* <div className="absolute w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[430px] md:h-[430px] bg-violet-300 rounded-full"></div> */}
-
             {/* IMAGE */}
-<img
-  src={hero.image_url}
-  alt="hero"
-  className="relative z-10 w-[300px] h-full sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-cover rounded-full drop-shadow-[0_20px_40px_rgba(139,92,246,0.35)]"
-/>          </div>
+            <img
+              src={hero.image_url}
+              alt="hero"
+              className="relative z-10 w-[300px] h-full sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-cover rounded-full drop-shadow-[0_20px_40px_rgba(139,92,246,0.35)]"
+            />{" "}
+          </div>
         </div>
       </div>
     </section>

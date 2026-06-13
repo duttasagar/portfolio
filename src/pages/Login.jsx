@@ -3,7 +3,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Login = () => {
-  const API_URL = "http://127.0.0.1:8000/api";
+    const API_URL = import.meta.env.VITE_API_URL;
+
+  // const API_URL = "http://127.0.0.1:8000/api";
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");

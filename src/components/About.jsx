@@ -5,13 +5,11 @@ import Particles from "../Particles";
 import { MovingParticles } from "../MovingParticles";
 import SplitText from "../SplitText";
 const About = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [about, setAbout] = useState(null);
   const [skill, setSkill] = useState([]);
   const [qualification, setQualification] = useState([]);
-
-  const API_URL = "http://127.0.0.1:8000/api";
-    // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
-
 
   useEffect(() => {
     fetchAbout();

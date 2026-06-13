@@ -9,9 +9,9 @@ import { NavLink } from "react-router-dom";
 import axios from "axios";
 
 const Footer = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const [contact, setContact] = useState(null);
-    const API_URL = "http://127.0.0.1:8000/api";
-  // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
 
   useEffect(() => {
     fetchContact();
@@ -28,17 +28,12 @@ const Footer = () => {
 
   return (
     <footer className="w-full bg-[#0f172a] text-white px-4 sm:px-6 md:px-12 lg:px-20 py-12 sm:py-16">
-
       <div className="max-w-7xl mx-auto">
-
         {/* TOP GRID */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-
           {/* CARD 1 */}
           <div className="bg-white/5 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-              Sagar Dutta
-            </h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Sagar Dutta</h2>
 
             <p className="text-gray-400 leading-7 text-sm sm:text-base">
               Full Stack Developer focused on building modern, scalable and
@@ -59,7 +54,6 @@ const Footer = () => {
             </h3>
 
             <div className="flex flex-col gap-3 text-gray-400 text-sm sm:text-base">
-
               <NavLink to="/" className="hover:text-violet-400 transition">
                 Home
               </NavLink>
@@ -68,7 +62,10 @@ const Footer = () => {
                 About
               </NavLink>
 
-              <NavLink to="/skills" className="hover:text-violet-400 transition">
+              <NavLink
+                to="/skills"
+                className="hover:text-violet-400 transition"
+              >
                 Skills
               </NavLink>
 
@@ -76,22 +73,25 @@ const Footer = () => {
                 Projects
               </NavLink>
 
-              <NavLink to="/experience" className="hover:text-violet-400 transition">
+              <NavLink
+                to="/experience"
+                className="hover:text-violet-400 transition"
+              >
                 Experience
               </NavLink>
 
-              <NavLink to="/contact" className="hover:text-violet-400 transition">
+              <NavLink
+                to="/contact"
+                className="hover:text-violet-400 transition"
+              >
                 Contact
               </NavLink>
-
             </div>
           </div>
 
           {/* CARD 3 */}
           <div className="bg-white/5 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10">
-            <h3 className="text-xl sm:text-2xl font-semibold mb-4">
-              Connect
-            </h3>
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4">Connect</h3>
 
             <p className="text-gray-400 mb-5 text-sm sm:text-base">
               Let’s build something amazing together.
@@ -99,7 +99,6 @@ const Footer = () => {
 
             {/* SOCIAL */}
             <div className="flex flex-wrap gap-3">
-
               <a
                 href={contact?.facebook || "#"}
                 target="_blank"
@@ -133,10 +132,8 @@ const Footer = () => {
               >
                 <FaGithub size={14} />
               </a>
-
             </div>
           </div>
-
         </div>
 
         {/* BOTTOM */}
@@ -145,7 +142,6 @@ const Footer = () => {
             © 2026 Sagar Dutta. Built with React, Tailwind CSS & Laravel
           </p>
         </div>
-
       </div>
     </footer>
   );

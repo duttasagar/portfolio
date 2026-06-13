@@ -4,7 +4,9 @@ import { MovingParticles } from "../MovingParticles";
 import SplitText from "../SplitText";
 
 const RecentWork = () => {
-  const API_URL = "http://127.0.0.1:8000/api";
+  const API_URL = import.meta.env.VITE_API_URL;
+
+  // const API_URL = "http://127.0.0.1:8000/api";
 
   // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
   const [works, setWork] = useState([]);
@@ -88,10 +90,10 @@ const RecentWork = () => {
                   className="relative bg-cover bg-center rounded-2xl sm:rounded-[30px] p-5 sm:p-6 lg:p-7 
     h-full flex flex-col text-white overflow-hidden"
                   style={{
-  backgroundImage: work.image
-    ? `url(http://127.0.0.1:8000/${work.image})`
-    : "none",
-}}
+                    backgroundImage: work.image
+                      ? `url(http://127.0.0.1:8000/${work.image})`
+                      : "none",
+                  }}
                 >
                   {/* Overlay */}
                   <div className="absolute inset-0 z-0">
