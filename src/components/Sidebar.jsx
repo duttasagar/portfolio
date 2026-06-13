@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
 import {
   LayoutDashboard,
   Image,
@@ -15,18 +16,14 @@ import {
 } from "lucide-react";
 
 const Sidebar = () => {
+  const API_URL = import.meta.env.VITE_API_URL;
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem("adminAuth");
-
-    // remove other auth data if you add later
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-
-    navigate("/login");
-  };
+const handleLogout = () => {
+  localStorage.removeItem("admin");
+  navigate("/login");
+};
 
   const menuItems = [
     {

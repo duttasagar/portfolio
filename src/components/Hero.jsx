@@ -140,13 +140,11 @@ const Hero = () => {
             {/* <div className="absolute w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[430px] md:h-[430px] bg-violet-300 rounded-full"></div> */}
 
             {/* IMAGE */}
-            <img
-              // src="#"
-              src="/dp5.png"
-              alt="hero"
-              className="relative z-10 w-[300px] h-full sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-cover rounded-full drop-shadow-[0_20px_40px_rgba(139,92,246,0.35)]"
-            />
-          </div>
+<img
+  src={hero.image_url}
+  alt="hero"
+  className="relative z-10 w-[300px] h-full sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-cover rounded-full drop-shadow-[0_20px_40px_rgba(139,92,246,0.35)]"
+/>          </div>
         </div>
       </div>
     </section>
