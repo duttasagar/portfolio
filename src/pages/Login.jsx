@@ -30,8 +30,9 @@ const Login = () => {
           "admin",
           JSON.stringify(response.data.user)
         );
+        console.log("Navigating...");
+  navigate("/admin/hero");
 
-        navigate("/admin/hero");
       }
     } catch (error) {
       console.log(error);
