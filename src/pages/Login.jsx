@@ -25,6 +25,7 @@ const Login = () => {
       if (response.data.success) {
           console.log("Login Success", response.data);
 
+          localStorage.setItem("adminAuth", "true");
         localStorage.setItem(
           "admin",
           JSON.stringify(response.data.user)
