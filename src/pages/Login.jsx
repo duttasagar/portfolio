@@ -20,10 +20,11 @@ const Login = () => {
       const response = await axios.post(
         `${API_URL}/admin/login`,
         { email, password }
-        // { withCredentials: true }
       );
 
       if (response.data.success) {
+          console.log("Login Success", response.data);
+
         localStorage.setItem(
           "admin",
           JSON.stringify(response.data.user)
