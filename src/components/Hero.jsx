@@ -23,16 +23,28 @@ const Hero = () => {
   };
 
   const fetchHero = async () => {
-    try {
-      const res = await axios.get(`${API_URL}/hero`);
-      setHero({
-        ...res.data.hero,
-        image_url: res.data.image_url,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  try {
+    const res = await axios.get(`${API_URL}/hero`);
+
+    setHero({
+      ...res.data.hero,
+      image_url: res.data.image_url,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+  // const fetchHero = async () => {
+  //   try {
+  //     const res = await axios.get(`${API_URL}/hero`);
+  //     setHero({
+  //       ...res.data.hero,
+  //       image_url: res.data.image_url,
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   if (!hero) {
     return <div className="text-center py-20 text-gray-500">Loading...</div>;
@@ -52,13 +64,6 @@ const Hero = () => {
             </div>
             <br />
 
-            {/* <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-black">
-              {hero.name}
-
-              <span className="block text-violet-600 text-sm sm:text-lg md:text-xl mt-2">
-                {hero.title}
-              </span>
-            </h1> */}
             <AnimatedText
               text={hero.name}
               tag="h1"
@@ -138,13 +143,15 @@ const Hero = () => {
           {/* RIGHT SIDE */}
           <div className="relative flex justify-center items-center mx-auto">
             <div className="absolute w-[220px] h-[220px] sm:w-[320px] sm:h-[320px] md:w-[300px] md:h-[500px] bg-violet-200 rounded-full blur-3xl opacity-60"></div>
-            {/* <div className="absolute w-[200px] h-[200px] sm:w-[280px] sm:h-[280px] md:w-[430px] md:h-[430px] bg-violet-300 rounded-full"></div> */}
             {/* IMAGE */}
-            <img
-              src={hero.image_url}
+            <img src={hero.image_url}
+                          className="relative z-10 w-[300px] h-full sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-cover rounded-full drop-shadow-[0_20px_40px_rgba(139,92,246,0.35)]"
+                        alt="hero" />
+            {/* <img src={hero.image_url}
+              
               alt="hero"
               className="relative z-10 w-[300px] h-full sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-cover rounded-full drop-shadow-[0_20px_40px_rgba(139,92,246,0.35)]"
-            />{" "}
+            />{" "} */}
           </div>
         </div>
       </div>
