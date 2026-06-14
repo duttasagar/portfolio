@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { navLinks } from "../routes/navLinks";
 import {
   FaFacebookF,
   FaInstagram,
@@ -53,7 +54,7 @@ const Footer = () => {
               Quick Links
             </h3>
 
-            <div className="flex flex-col gap-3 text-gray-400 text-sm sm:text-base">
+            {/* <div className="flex flex-col gap-3 text-gray-400 text-sm sm:text-base">
               <NavLink to="/" className="hover:text-violet-400 transition">
                 Home
               </NavLink>
@@ -86,6 +87,17 @@ const Footer = () => {
               >
                 Contact
               </NavLink>
+            </div> */}
+            <div className="flex flex-col gap-3 text-gray-400 text-sm sm:text-base">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.path}
+                  to={link.path}
+                  className="hover:text-violet-400 transition"
+                >
+                  {link.name}
+                </NavLink>
+              ))}
             </div>
           </div>
 
