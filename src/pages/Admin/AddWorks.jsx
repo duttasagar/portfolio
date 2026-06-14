@@ -142,11 +142,6 @@ const AddWorks = () => {
               className="bg-white rounded-2xl shadow-lg border overflow-hidden flex flex-col h-full"
             >
               {item.image && (
-                // <img
-                //   src={`${IMAGE_URL}/${item.image}`}
-                //   alt={item.title}
-                //   className="w-full h-48 object-cover"
-                // />
 
                 <img
                   src={`${IMAGE_URL}/${item.image}`}

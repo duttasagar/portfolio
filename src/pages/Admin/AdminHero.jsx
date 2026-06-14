@@ -3,8 +3,16 @@ import axios from "axios";
 
 const AdminHero = () => {
   const API_URL = import.meta.env.VITE_API_URL;
-    // const API_URL = "http://127.0.0.1:8000/api";
+  // const API_URL = "http://127.0.0.1:8000/api";
   // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
+
+  const [loading, setLoading] = useState(false);
+
+  const [message, setMessage] = useState({
+    show: false,
+    text: "",
+    type: "",
+  });
 
   const [hero, setHero] = useState({
     name: "",
@@ -87,36 +95,56 @@ const AdminHero = () => {
 
     try {
       if (existingId) {
-        await axios.post(
-          `${API_URL}/hero/${existingId}?_method=PUT`,
-          formData
-        );
+        await axios.post(`${API_URL}/hero/${existingId}?_method=PUT`, formData);
       } else {
         await axios.post(`${API_URL}/hero`, formData);
-      }
 
-      alert("Hero Updated Successfully");
+        setMessage({
+          show: true,
+          text: "Hero Updated Successfully",
+          type: "success",
+        });
+      }
 
       setIsModalOpen(false);
 
       fetchHero();
     } catch (error) {
       console.log(error);
+      setMessage({
+        show: true,
+        text: "Failed to update hero",
+        type: "error",
+      });
+    } finally {
+      setLoading(false);
+
+      setTimeout(() => {
+        setMessage({
+          show: false,
+          text: "",
+          type: "",
+        });
+      }, 3000);
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 p-8">
+      {message.show && (
+        <div
+          className={`fixed top-5 right-5 z-[9999] px-6 py-3 rounded-lg shadow-lg text-white
+      ${message.type === "success" ? "bg-green-500" : "bg-red-500"}`}
+        >
+          {message.text}
+        </div>
+      )}
 
-      <h1 className="text-3xl font-bold mb-8">
-        Hero Section Management
-      </h1>
+      <h1 className="text-3xl font-bold mb-8">Hero Section Management</h1>
 
       {/* Hero Preview Card */}
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-5xl">
-
         <div className="flex flex-col md:flex-row gap-8">
-
           <div>
             {imageUrl ? (
               <img
@@ -132,36 +160,26 @@ const AdminHero = () => {
           </div>
 
           <div className="flex-1">
+            <h2 className="text-3xl font-bold">{hero.name}</h2>
 
-            <h2 className="text-3xl font-bold">
-              {hero.name}
-            </h2>
-
-            <p className="text-violet-600 text-xl mt-2">
-              {hero.title}
-            </p>
+            <p className="text-violet-600 text-xl mt-2">{hero.title}</p>
 
             <p className="text-gray-600 mt-4 whitespace-pre-line">
               {hero.description}
             </p>
 
             <div className="mt-6 space-y-2">
-
               <p>
-                <strong>Facebook:</strong>{" "}
-                {hero.facebook}
+                <strong>Facebook:</strong> {hero.facebook}
               </p>
 
               <p>
-                <strong>Instagram:</strong>{" "}
-                {hero.instagram}
+                <strong>Instagram:</strong> {hero.instagram}
               </p>
 
               <p>
-                <strong>LinkedIn:</strong>{" "}
-                {hero.linkedin}
+                <strong>LinkedIn:</strong> {hero.linkedin}
               </p>
-
             </div>
 
             <button
@@ -170,7 +188,6 @@ const AdminHero = () => {
             >
               Edit Hero
             </button>
-
           </div>
         </div>
       </div>
@@ -178,14 +195,9 @@ const AdminHero = () => {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50 p-4">
-
           <div className="bg-white rounded-2xl w-full max-w-3xl p-8 max-h-[90vh] overflow-y-auto">
-
             <div className="flex justify-between items-center mb-6">
-
-              <h2 className="text-2xl font-bold">
-                Edit Hero
-              </h2>
+              <h2 className="text-2xl font-bold">Edit Hero</h2>
 
               <button
                 onClick={() => setIsModalOpen(false)}
@@ -193,14 +205,9 @@ const AdminHero = () => {
               >
                 ×
               </button>
-
             </div>
 
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-4"
-            >
-
+            <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
                 name="name"
@@ -256,9 +263,7 @@ const AdminHero = () => {
               />
 
               <div>
-                <label className="font-medium block mb-2">
-                  Upload CV
-                </label>
+                <label className="font-medium block mb-2">Upload CV</label>
 
                 <input
                   type="file"
@@ -268,9 +273,7 @@ const AdminHero = () => {
               </div>
 
               <div>
-                <label className="font-medium block mb-2">
-                  Upload Image
-                </label>
+                <label className="font-medium block mb-2">Upload Image</label>
 
                 <input
                   type="file"
@@ -279,17 +282,33 @@ const AdminHero = () => {
                 />
               </div>
 
-              <button
+              {/* <button
                 type="submit"
                 className="w-full bg-violet-600 hover:bg-violet-700 text-white py-3 rounded-lg"
               >
                 Update Hero
+              </button> */}
+              <button
+                type="submit"
+                disabled={loading}
+                className={`w-full text-white py-3 rounded-lg flex items-center justify-center gap-2
+  ${
+    loading
+      ? "bg-gray-400 cursor-not-allowed"
+      : "bg-violet-600 hover:bg-violet-700"
+  }`}
+              >
+                {loading ? (
+                  <>
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                    Updating...
+                  </>
+                ) : (
+                  "Update Hero"
+                )}
               </button>
-
             </form>
-
           </div>
-
         </div>
       )}
     </div>
