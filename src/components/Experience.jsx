@@ -34,25 +34,10 @@ const Experience = () => {
       className="w-full bg-[#f7f7fb] px-4 sm:px-6 md:px-12 lg:px-20  sm:py-0 lg:py-0 "
     >
       <MovingParticles />
-      <div className="max-w-7xl mx-auto  pt-13 pb-10">
-        {/* Heading */}
-        {/* <div className="text-center mb-8 sm:mb-10 lg:mb-12">
-          <p className="text-violet-600 font-semibold tracking-widest mb-2 sm:mb-3 text-sm sm:text-base">
-            EXPERIENCE
-          </p>
+      {/* <div className="max-w-7xl mx-auto  pt-12 pb-10"> */}
+        <div className="max-w-7xl mx-auto pt-0 sm:pt-12 pb-10">
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black">
-            My Journey & Experience
-          </h2>
-
-          <p className="text-gray-600 mt-4 sm:mt-5 max-w-2xl mx-auto leading-7 sm:leading-8 text-sm sm:text-base md:text-lg px-2 sm:px-0">
-            My professional journey started with customer service experience
-            and gradually moved into software development.
-          </p>
-        </div> */}
-        {/* Heading */}
-
-        <div className="text-center mb-8 sm:mb-10 lg:mb-12 flex flex-col">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-12 flex flex-col ">
           <SplitText
             text="EXPERIENCE"
             tag="p"

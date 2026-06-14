@@ -28,7 +28,7 @@ const RecentWork = () => {
   return (
     <section
       id="work"
-      className="w-full bg-[#f7f7fb] px-4 sm:px-6 md:px-12 lg:px-20 py-10 sm:py-14 lg:py-0"
+      className="w-full bg-[#f7f7fb] px-4 sm:px-6 md:px-12 lg:px-20 sm:py-0 lg:py-0"
     >
       <MovingParticles />
       <div className="max-w-7xl mx-auto lg:pt-13 pb-10">

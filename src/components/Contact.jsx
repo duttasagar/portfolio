@@ -64,21 +64,10 @@ const Contact = () => {
       id="contact"
       className="w-full  px-4 sm:px-6 md:px-12 lg:px-20 py-10 sm:py-14 lg:py-0 bg-[#f7f7fb]"
     >
-      <div className="max-w-7xl mx-auto lg:pt-13 pb-10">
-        {/* Heading */}
-        {/* <div className="text-center mb-10 sm:mb-14 lg:mb-16">
-          <p className="text-violet-600 font-semibold tracking-widest mb-2 sm:mb-3 text-sm sm:text-base">
-            CONTACT ME
-          </p>
+      {/* <div className="max-w-7xl mx-auto lg:pt-12 pb-10"> */}
+                <div className="max-w-7xl mx-auto pt-0 sm:pt-12 pb-10">
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black">
-            Let’s Work Together
-          </h2>
-
-          <p className="text-gray-600 mt-4 sm:mt-5 max-w-2xl mx-auto leading-7 sm:leading-8 text-sm sm:text-base md:text-lg px-2 sm:px-0">
-            Have a project idea or opportunity? Feel free to contact me.
-          </p>
-        </div> */}
+        
 
         <div className="text-center mb-10 sm:mb-14 lg:mb-16 flex flex-col items-center">
           <SplitText

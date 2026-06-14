@@ -55,17 +55,7 @@ const About = () => {
     >
       <MovingParticles />
 
-      <div className="max-w-7xl mx-auto pt-13 pb-10">
-        {/* Heading */}
-        {/* <div className="text-center mb-8 sm:mb-10">
-          <p className="text-violet-600 font-semibold tracking-widest mb-2 sm:mb-3 text-sm sm:text-base">
-            ABOUT ME
-          </p>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-black">
-            My Journey
-          </h2>
-        </div> */}
+      <div className="max-w-7xl mx-auto pt-12 pb-10">
         <div className="text-center mb-8 sm:mb-10">
           <SplitText
             text="ABOUT ME"
