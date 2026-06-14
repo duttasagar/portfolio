@@ -88,7 +88,7 @@ const Hero = () => {
 
               {hero.cv_link && (
                 <a
-                  href={`http://127.0.0.1:8000/storage/${hero.cv_link}`}
+                href={`${API_URL.replace("/api", "")}/${hero.cv_link}`}
                   target="_blank"
                   rel="noreferrer"
                   className="px-6 py-3 rounded-full bg-white text-gray-800 font-semibold shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-gray-200"
