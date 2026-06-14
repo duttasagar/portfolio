@@ -1,15 +1,12 @@
-
-
-
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-  // const API_URL = "http://127.0.0.1:8000/api";
+// const API_URL = "http://127.0.0.1:8000/api";
 
 // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
-  const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
-const IMAGE_URL = "http://127.0.0.1:8000";
+const IMAGE_URL = API_URL.replace("/api", "");
 const AddWorks = () => {
   const [works, setWorks] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -122,10 +119,8 @@ const AddWorks = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-
       {/* HEADER */}
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-8">
-
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
           Recent Works
         </h1>
@@ -136,12 +131,10 @@ const AddWorks = () => {
         >
           + Add Work
         </button>
-
       </div>
 
       {/* PROJECTS */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-
         {works.length > 0 ? (
           works.map((item) => (
             <div
@@ -149,6 +142,12 @@ const AddWorks = () => {
               className="bg-white rounded-2xl shadow-lg border overflow-hidden flex flex-col h-full"
             >
               {item.image && (
+                // <img
+                //   src={`${IMAGE_URL}/${item.image}`}
+                //   alt={item.title}
+                //   className="w-full h-48 object-cover"
+                // />
+
                 <img
                   src={`${IMAGE_URL}/${item.image}`}
                   alt={item.title}
@@ -157,27 +156,19 @@ const AddWorks = () => {
               )}
 
               <div className="p-5 flex flex-col flex-1">
-
                 <h2 className="text-xl font-bold text-violet-700">
                   {item.title}
                 </h2>
 
-                <p className="text-gray-600 mt-3">
-                  {item.description}
-                </p>
+                <p className="text-gray-600 mt-3">{item.description}</p>
 
                 <div className="mt-4">
-                  <p className="font-semibold">
-                    Technologies
-                  </p>
+                  <p className="font-semibold">Technologies</p>
 
-                  <p className="text-gray-500 mt-1">
-                    {item.technologies}
-                  </p>
+                  <p className="text-gray-500 mt-1">{item.technologies}</p>
                 </div>
 
-                                <div className="flex flex-wrap justify-end gap-2 mt-6">
-
+                <div className="flex flex-wrap justify-end gap-2 mt-6">
                   <a
                     href={item.project_link}
                     target="_blank"
@@ -200,9 +191,7 @@ const AddWorks = () => {
                   >
                     Delete
                   </button>
-
                 </div>
-
               </div>
             </div>
           ))
@@ -216,12 +205,9 @@ const AddWorks = () => {
       {/* MODAL */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex justify-center items-center p-4 z-50">
-
           <div className="bg-white rounded-2xl w-full max-w-2xl p-4 sm:p-6 md:p-8 max-h-[90vh] overflow-y-auto">
-
             {/* MODAL HEADER */}
             <div className="flex justify-between items-center mb-6">
-
               <h2 className="text-xl sm:text-2xl font-bold">
                 {editId ? "Edit Project" : "Add Project"}
               </h2>
@@ -232,12 +218,10 @@ const AddWorks = () => {
               >
                 ×
               </button>
-
             </div>
 
             {/* FORM */}
             <form onSubmit={handleSubmit} className="space-y-5">
-
               <input
                 type="text"
                 name="title"
@@ -285,7 +269,6 @@ const AddWorks = () => {
               />
 
               <div className="flex flex-col sm:flex-row justify-end gap-3">
-
                 <button
                   type="button"
                   onClick={() => {
@@ -303,13 +286,9 @@ const AddWorks = () => {
                 >
                   {editId ? "Update Project" : "Save Project"}
                 </button>
-
               </div>
-
             </form>
-
           </div>
-
         </div>
       )}
     </div>

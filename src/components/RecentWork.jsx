@@ -5,10 +5,10 @@ import SplitText from "../SplitText";
 
 const RecentWork = () => {
   const API_URL = import.meta.env.VITE_API_URL;
-
+  const IMAGE_URL = API_URL.replace("/api", "");
   // const API_URL = "http://127.0.0.1:8000/api";
-
   // const API_URL = "https://portfolio-backend-1-sbnp.onrender.com/api";
+
   const [works, setWork] = useState([]);
   const [expandedIndex, setExpandedIndex] = useState(null);
 
@@ -91,7 +91,7 @@ const RecentWork = () => {
     h-full flex flex-col text-white overflow-hidden"
                   style={{
                     backgroundImage: work.image
-                      ? `url(http://127.0.0.1:8000/${work.image})`
+                      ? `url(${IMAGE_URL}/${work.image})`
                       : "none",
                   }}
                 >
