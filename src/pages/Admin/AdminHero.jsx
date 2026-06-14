@@ -75,6 +75,7 @@ const AdminHero = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = new FormData();
 
@@ -98,13 +99,12 @@ const AdminHero = () => {
         await axios.post(`${API_URL}/hero/${existingId}?_method=PUT`, formData);
       } else {
         await axios.post(`${API_URL}/hero`, formData);
-
-        setMessage({
-          show: true,
-          text: "Hero Updated Successfully",
-          type: "success",
-        });
       }
+      setMessage({
+        show: true,
+        text: "Hero Updated Successfully",
+        type: "success",
+      });
 
       setIsModalOpen(false);
 
